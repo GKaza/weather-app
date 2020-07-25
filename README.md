@@ -1,4 +1,4 @@
-# weather-project
+# weather-app
 
 ## Project setup
 ```

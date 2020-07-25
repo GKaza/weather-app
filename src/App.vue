@@ -1,32 +1,112 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div class="nav">
+      <router-link :to="{name:'Home'}">
+        <div class="nav_button">Home</div>
+      </router-link>
+      <router-link :to="{name:'Categories'}">
+        <div class="nav_button">Categories</div>
+      </router-link>
+      <router-link :to="{name:'Random', params:{cities: cities}}">
+        <div class="nav_button">Random</div>
+      </router-link>
     </div>
-    <router-view/>
+    <router-view :key="$route.path" @updateCities="updateCities" class="view" />
   </div>
 </template>
 
+<script>
+export default {
+  name: "App",
+  data() {
+    return {
+      cities: null,
+    };
+  },
+  methods: {
+    updateCities(cities) {
+      this.cities = cities;
+    },
+  },
+};
+</script>
+
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #ffffff;
+  /* background-color: #27ae60; */
+  min-height: 100%;
+  background: linear-gradient(
+      to bottom,
+      rgba(140, 122, 122, 1) 0%,
+      rgba(175, 135, 124, 1) 65%,
+      rgba(175, 135, 124, 1) 100%
+    )
+    fixed;
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/coc-background.jpg")
+    no-repeat center center fixed;
+  background-size: cover;
 }
 
-#nav {
-  padding: 30px;
+html,
+body {
+  height: 100%;
 }
 
-#nav a {
+* {
+  margin: 0px;
+}
+.view {
+  padding-top: 68px;
+  height: 100%;
+}
+
+.nav {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 68px;
+  padding-left: 60px;
+  display: flex;
+  transition: 300ms;
+  background-color: #82bb30;
+}
+
+.nav_button {
+  transition: 400ms;
+  border: none;
+  min-width: fit-content;
+  width: 120px;
+}
+
+.nav a {
+  text-decoration: none;
   font-weight: bold;
-  color: #2c3e50;
+  color: #ffffff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: 400ms;
+}
+.nav a:hover {
+  background-color: #74a82b;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+@media (max-width: 767px) {
+  .nav {
+    padding: 0px;
+    justify-content: center;
+  }
+
+  .nav_button {
+    width: 93px;
+  }
 }
 </style>
