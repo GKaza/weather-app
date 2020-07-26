@@ -1,17 +1,33 @@
 <template>
   <div id="app">
-    <div class="nav">
-      <router-link :to="{name:'Home'}">
-        <div class="nav_button">Home</div>
-      </router-link>
-      <router-link :to="{name:'Categories'}">
-        <div class="nav_button">Categories</div>
-      </router-link>
-      <router-link :to="{name:'Random', params:{cities: cities}}">
-        <div class="nav_button">Random</div>
-      </router-link>
+    <div class="content">
+      <div class="nav">
+        <router-link :to="{name:'Home'}">
+          <div class="nav_button">Home</div>
+        </router-link>
+        <router-link :to="{name:'Categories'}">
+          <div class="nav_button">Categories</div>
+        </router-link>
+        <router-link :to="{name:'Random', params:{cities: cities}}">
+          <div class="nav_button">Random</div>
+        </router-link>
+      </div>
+      <router-view :key="$route.path" @updateCities="updateCities" class="view" />
     </div>
-    <router-view :key="$route.path" @updateCities="updateCities" class="view" />
+    <div class="footer">
+      <div class="footer_menu">
+        <div class="footer_title">-Menu-</div>
+        <router-link :to="{name:'Home'}">
+          <div>Home</div>
+        </router-link>
+        <router-link :to="{name:'Categories'}">
+          <div>Categories</div>
+        </router-link>
+        <router-link :to="{name:'Random', params:{cities: cities}}">
+          <div>Random</div>
+        </router-link>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -38,7 +54,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #ffffff;
-  /* background-color: #27ae60; */
   min-height: 100%;
   background: linear-gradient(
       to bottom,
@@ -60,9 +75,37 @@ body {
 * {
   margin: 0px;
 }
+
 .view {
   padding-top: 68px;
-  height: 100%;
+}
+
+.footer {
+  padding: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.footer a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 300;
+}
+
+.footer div {
+  padding: 5px 0px;
+}
+
+.footer_menu {
+  width: 100px;
+  margin: auto;
+}
+
+.footer_title {
+  font-weight: 600;
+}
+
+.content {
+  min-height: 100vh;
 }
 
 .nav {

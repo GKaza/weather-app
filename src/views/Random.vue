@@ -6,7 +6,7 @@
 // @ is an alias to /src
 
 export default {
-  name: "Home",
+  name: "Random",
   components: {},
   data() {
     return {
@@ -20,7 +20,7 @@ export default {
       const x = this.cities[y].id;
       this.$router.push({
         name: "City",
-        params: { id: x, cities: this.cities },
+        params: { id: x, cities: this.cities, random: true },
       });
     },
   },

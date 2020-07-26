@@ -40,7 +40,6 @@ export default Vue.extend({
   background: #82bb30;
   width: 400px;
   display: inline-block;
-  margin: 60px auto;
   box-shadow: -1px 15px 30px -12px black;
   border-radius: 1vw;
 }
@@ -80,6 +79,7 @@ export default Vue.extend({
   height: 100px;
   overflow: auto;
 }
+
 .one-third {
   width: 33%;
   height: 100%;
