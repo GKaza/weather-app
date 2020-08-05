@@ -3,20 +3,20 @@
     <div class="content">
       <div class="nav">
         <router-link :to="{name:'Home'}">
-          <div class="nav_button">Home</div>
+          <div class="nav-button">Home</div>
         </router-link>
         <router-link :to="{name:'Categories'}">
-          <div class="nav_button">Categories</div>
+          <div class="nav-button">Categories</div>
         </router-link>
         <router-link :to="{name:'Random', params:{cities: cities}}">
-          <div class="nav_button">Random</div>
+          <div class="nav-button">Random</div>
         </router-link>
       </div>
       <router-view :key="$route.path" @updateCities="updateCities" class="view" />
     </div>
     <div class="footer">
-      <div class="footer_menu">
-        <div class="footer_title">-Menu-</div>
+      <div class="footer-menu">
+        <div class="footer-title">-Menu-</div>
         <router-link :to="{name:'Home'}">
           <div>Home</div>
         </router-link>
@@ -73,7 +73,7 @@ body {
 }
 
 * {
-  margin: 0px;
+  margin: 0;
 }
 
 .view {
@@ -92,15 +92,15 @@ body {
 }
 
 .footer div {
-  padding: 5px 0px;
+  padding: 5px 0;
 }
 
-.footer_menu {
+.footer-menu {
   width: 100px;
   margin: auto;
 }
 
-.footer_title {
+.footer-title {
   font-weight: 600;
 }
 
@@ -121,7 +121,7 @@ body {
   background-color: #82bb30;
 }
 
-.nav_button {
+.nav-button {
   transition: 400ms;
   border: none;
   min-width: fit-content;
@@ -144,11 +144,11 @@ body {
 
 @media (max-width: 767px) {
   .nav {
-    padding: 0px;
+    padding: 0;
     justify-content: center;
   }
 
-  .nav_button {
+  .nav-button {
     width: 93px;
   }
 }

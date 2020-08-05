@@ -1,14 +1,14 @@
 <template>
-  <div class="cities_container">
-    <div class="sort_buttons">
+  <div class="cities-container">
+    <div class="sort-buttons">
       <p>sort:</p>
-      <button class="sort_button" @click="sortOrder = 'AZ'" v-if="sortOrder !== 'AZ'">A-Z</button>
-      <button class="sort_button" @click="sortOrder = 'ZA'" v-if="sortOrder !== 'ZA'">Z-A</button>
+      <button class="sort-button" @click="sortOrder = 'az'" v-if="sortOrder !== 'az'">A-Z</button>
+      <button class="sort-button" @click="sortOrder = 'za'" v-if="sortOrder !== 'za'">Z-A</button>
     </div>
-    <ul class="cities_list">
+    <ul class="cities-list">
       <li v-for="city in sortCities" :key="city.id">
-        <router-link class="city_link" :to="{name:'City', params:{id: city.id, cities: cities}}">
-          <div class="city_button">{{city.name}}</div>
+        <router-link class="city-link" :to="{name:'City', params:{id: city.id, cities: cities}}">
+          <div class="city-button">{{city.name}}</div>
         </router-link>
       </li>
     </ul>
@@ -28,7 +28,7 @@ export default Vue.extend({
   },
   computed: {
     sortCities: function () {
-      if (this.sortOrder == "AZ") {
+      if (this.sortOrder == "az") {
         return this.cities.slice().sort((a: any, b: any) => {
           const nameA = a.name.toUpperCase();
           const nameB = b.name.toUpperCase();
@@ -40,7 +40,7 @@ export default Vue.extend({
           }
           return 0;
         });
-      } else if (this.sortOrder == "ZA") {
+      } else if (this.sortOrder == "za") {
         return this.cities.slice().sort((a: any, b: any) => {
           const nameA = a.name.toUpperCase();
           const nameB = b.name.toUpperCase();
@@ -62,25 +62,25 @@ export default Vue.extend({
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.cities_list {
+.cities-list {
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  padding-left: 0px;
+  padding-left: 0;
   padding-bottom: 50px;
   width: fit-content;
   margin: auto;
 }
-.cities_list li {
+.cities-list li {
   overflow: auto;
   padding: 0.5rem;
 }
 
-.city_button {
+.city-button {
   transition: 400ms;
   border: none;
   border-radius: 1vw;
-  margin: 0px;
+  margin: 0;
   padding: 1rem;
   min-width: fit-content;
   width: 160px;
@@ -89,12 +89,12 @@ export default Vue.extend({
   letter-spacing: 1px;
 }
 
-.city_button:hover {
+.city-button:hover {
   background-color: rgba(0, 0, 0, 0.4);
   letter-spacing: 2px;
 }
 
-.city_link {
+.city-link {
   text-decoration: none;
   display: inline-block;
   width: 100%;
@@ -102,26 +102,26 @@ export default Vue.extend({
   color: #ffffff;
 }
 
-.sort_buttons {
+.sort-buttons {
   padding: 1rem;
 }
 
-.sort_buttons p {
+.sort-buttons p {
   display: inline;
   margin: 0rem 0.4rem;
 }
-.sort_button {
+.sort-button {
   cursor: pointer;
   transition: 400ms;
   color: #ffffff;
   border: none;
   border-radius: 0.6vw;
   padding: 0.5rem;
-  margin: 0rem 0.4rem;
+  margin: 0 0.4rem;
   background-color: rgba(0, 0, 0, 0.1);
   outline: none;
 }
-.sort_button:hover {
+.sort-button:hover {
   background-color: rgba(0, 0, 0, 0.2);
 }
 </style>

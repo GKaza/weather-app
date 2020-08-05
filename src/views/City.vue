@@ -1,8 +1,8 @@
 <template>
-  <div class="city_flex">
+  <div class="city-flex">
     <City :info="city" />
-    <router-link v-if="random" class="city_link" :to="{name:'Random', params:{cities: cities}}">
-      <div class="city_button">New random city</div>
+    <router-link v-if="random" class="city-link" :to="{name:'Random', params:{cities: cities}}">
+      <div class="city-button">New random city</div>
     </router-link>
   </div>
 </template>
@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style scoped>
-.city_flex {
+.city-flex {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -45,13 +45,13 @@ export default {
   height: 90vh;
 }
 
-.city_link {
+.city-link {
   text-decoration: none;
   display: inline-block;
   color: #ffffff;
 }
 
-.city_button {
+.city-button {
   transition: 400ms;
   border: none;
   border-radius: 1vw;

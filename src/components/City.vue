@@ -1,6 +1,6 @@
 <template>
-  <div class="city_container">
-    <div class="weather_icon">
+  <div class="city-container">
+    <div class="weather-icon">
       <img
         :src="'http://openweathermap.org/img/wn/' + this.info.weather[0].icon + '@2x.png'"
         alt="weather icon"
@@ -18,7 +18,7 @@
         <div class="stat">temperature</div>
         <div class="stat-value">{{this.info.main.temp}} °C</div>
       </div>
-      <div class="one-third no_border">
+      <div class="one-third no-border">
         <div class="stat">humidity</div>
         <div class="stat-value">{{this.info.main.humidity}}%</div>
       </div>
@@ -36,7 +36,7 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.city_container {
+.city-container {
   background: #82bb30;
   width: 400px;
   display: inline-block;
@@ -44,7 +44,7 @@ export default Vue.extend({
   border-radius: 1vw;
 }
 
-.weather_icon {
+.weather-icon {
   height: 100px;
   border-top-left-radius: 1vw;
   border-top-right-radius: 1vw;
@@ -70,7 +70,7 @@ export default Vue.extend({
 .name {
   color: rgb(0, 0, 0);
   background: rgb(255, 255, 255);
-  padding: 26px 0px;
+  padding: 26px 0;
 }
 
 .info {
@@ -88,7 +88,7 @@ export default Vue.extend({
   overflow: hidden;
 }
 
-.no_border {
+.no-border {
   border-right: none;
 }
 
@@ -99,12 +99,12 @@ export default Vue.extend({
 }
 
 @media (max-width: 767px) {
-  .city_container {
+  .city-container {
     width: 90%;
   }
 
   .name {
-    padding: 30px 0px;
+    padding: 30px 0;
   }
 
   .info {
@@ -112,7 +112,7 @@ export default Vue.extend({
     overflow-wrap: break-word;
   }
 
-  .weather_icon {
+  .weather-icon {
     height: 108px;
   }
 }
