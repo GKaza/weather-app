@@ -1,14 +1,13 @@
 <template>
   <div class="city-flex">
     <City :info="city" />
-    <router-link v-if="random" class="city-link" :to="{name:'Random', params:{cities: cities}}">
+    <router-link v-if="random" class="city-link" :to="{name:'Random'}">
       <div class="city-button">New random city</div>
     </router-link>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import City from "@/components/City.vue";
 
 export default {
@@ -18,21 +17,20 @@ export default {
   },
   data() {
     return {
-      city: null,
       id: this.$route.params.id,
-      cities: this.$route.params.cities,
       random: this.$route.params.random,
     };
   },
-  methods: {
-    getCity() {
-      this.city = this.cities.find((city) => city.id === this.id);
-      return;
+  computed: {
+    cities() {
+      return this.$store.state.cities;
+    },
+    city() {
+      return this.cities.find((city) => city.id === this.id);
+      // we make sure we get the city from our array in store that has the same id that we passed as a parameter
     },
   },
-  created() {
-    this.getCity();
-  },
+  methods: {},
 };
 </script>
 

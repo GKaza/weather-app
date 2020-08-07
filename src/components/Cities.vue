@@ -7,7 +7,7 @@
     </div>
     <ul class="cities-list">
       <li v-for="city in sortCities" :key="city.id">
-        <router-link class="city-link" :to="{name:'City', params:{id: city.id, cities: cities}}">
+        <router-link class="city-link" :to="{name:'City', params:{id: city.id}}">
           <div class="city-button">{{city.name}}</div>
         </router-link>
       </li>
@@ -20,7 +20,6 @@ import Vue from "vue";
 
 export default Vue.extend({
   name: "Cities",
-  props: ["cities"],
   data() {
     return {
       sortOrder: "",
@@ -29,7 +28,7 @@ export default Vue.extend({
   computed: {
     sortCities: function () {
       if (this.sortOrder == "az") {
-        return this.cities.slice().sort((a: any, b: any) => {
+        return this.$store.state.cities.slice().sort((a: any, b: any) => {
           const nameA = a.name.toUpperCase();
           const nameB = b.name.toUpperCase();
           if (nameA < nameB) {
@@ -41,7 +40,7 @@ export default Vue.extend({
           return 0;
         });
       } else if (this.sortOrder == "za") {
-        return this.cities.slice().sort((a: any, b: any) => {
+        return this.$store.state.cities.slice().sort((a: any, b: any) => {
           const nameA = a.name.toUpperCase();
           const nameB = b.name.toUpperCase();
           if (nameA > nameB) {
@@ -53,14 +52,14 @@ export default Vue.extend({
           return 0;
         });
       } else {
-        return this.cities;
+        return this.$store.state.cities;
       }
     },
+    // sortCities is a computed property that returns our cities array sorted depending on the sortOrder defined in our data
   },
 });
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .cities-list {
   list-style-type: none;

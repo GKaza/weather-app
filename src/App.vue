@@ -12,7 +12,7 @@
           <div class="nav-button">Random</div>
         </router-link>
       </div>
-      <router-view :key="$route.path" @updateCities="updateCities" class="view" />
+      <router-view :key="$route.path" class="view" />
     </div>
     <div class="footer">
       <div class="footer-menu">
@@ -30,22 +30,6 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: "App",
-  data() {
-    return {
-      cities: null,
-    };
-  },
-  methods: {
-    updateCities(cities) {
-      this.cities = cities;
-    },
-  },
-};
-</script>
 
 <style>
 #app {
