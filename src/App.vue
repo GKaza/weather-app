@@ -8,7 +8,7 @@
         <router-link :to="{name:'Categories'}">
           <div class="nav-button">Categories</div>
         </router-link>
-        <router-link :to="{name:'Random', params:{cities: cities}}">
+        <router-link :to="{name:'Random'}">
           <div class="nav-button">Random</div>
         </router-link>
       </div>
@@ -23,7 +23,7 @@
         <router-link :to="{name:'Categories'}">
           <div>Categories</div>
         </router-link>
-        <router-link :to="{name:'Random', params:{cities: cities}}">
+        <router-link :to="{name:'Random'}">
           <div>Random</div>
         </router-link>
       </div>

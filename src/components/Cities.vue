@@ -55,7 +55,7 @@ export default Vue.extend({
         return this.$store.state.cities;
       }
     },
-    // sortCities is a computed property that returns our cities array sorted depending on the sortOrder defined in our data
+    // sortCities is a computed property that returns our cities array sorted depending on the sortOrder declared in our data
   },
 });
 </script>
