@@ -2,25 +2,27 @@
   <div class="city-container">
     <div class="weather-icon">
       <img
-        :src="'http://openweathermap.org/img/wn/' + this.info.weather[0].icon + '@2x.png'"
+        :src="
+          'http://openweathermap.org/img/wn/' + info.weather[0].icon + '@2x.png'
+        "
         alt="weather icon"
       />
     </div>
     <div class="name">
-      <h1>{{this.info.name}}</h1>
+      <h1>{{ info.name }}</h1>
     </div>
     <div class="info">
       <div class="one-third">
         <div class="stat">weather</div>
-        <div class="stat-value">{{this.info.weather[0].description}}</div>
+        <div class="stat-value">{{ info.weather[0].description }}</div>
       </div>
       <div class="one-third">
         <div class="stat">temperature</div>
-        <div class="stat-value">{{this.info.main.temp}} °C</div>
+        <div class="stat-value">{{ info.main.temp }} °C</div>
       </div>
       <div class="one-third no-border">
         <div class="stat">humidity</div>
-        <div class="stat-value">{{this.info.main.humidity}}%</div>
+        <div class="stat-value">{{ info.main.humidity }}%</div>
       </div>
     </div>
   </div>

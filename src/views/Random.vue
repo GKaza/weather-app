@@ -8,7 +8,7 @@ export default {
   components: {},
   computed: {
     cities() {
-      return this.$store.state.cities;
+      return this.$store.getters.cities;
     },
   },
   methods: {

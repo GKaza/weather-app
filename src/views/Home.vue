@@ -14,12 +14,8 @@ export default {
   },
   computed: {
     cities() {
-      return this.$store.state.cities;
+      return this.$store.getters.cities;
     },
-  },
-  mounted() {
-    this.$store.dispatch("loadCities");
-    // as soon as the component mounts we initiate the loadCities action in our store
   },
 };
 </script>

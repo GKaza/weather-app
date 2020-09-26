@@ -2,13 +2,13 @@
   <div id="app">
     <div class="content">
       <div class="nav">
-        <router-link :to="{name:'Home'}">
+        <router-link :to="{ name: 'Home' }">
           <div class="nav-button">Home</div>
         </router-link>
-        <router-link :to="{name:'Categories'}">
+        <router-link :to="{ name: 'Categories' }">
           <div class="nav-button">Categories</div>
         </router-link>
-        <router-link :to="{name:'Random'}">
+        <router-link :to="{ name: 'Random' }">
           <div class="nav-button">Random</div>
         </router-link>
       </div>
@@ -17,19 +17,30 @@
     <div class="footer">
       <div class="footer-menu">
         <div class="footer-title">-Menu-</div>
-        <router-link :to="{name:'Home'}">
+        <router-link :to="{ name: 'Home' }">
           <div>Home</div>
         </router-link>
-        <router-link :to="{name:'Categories'}">
+        <router-link :to="{ name: 'Categories' }">
           <div>Categories</div>
         </router-link>
-        <router-link :to="{name:'Random'}">
+        <router-link :to="{ name: 'Random' }">
           <div>Random</div>
         </router-link>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: "app",
+  components: {},
+  created() {
+    this.$store.dispatch("loadCities");
+    // as soon as the component is created we initiate the loadCities action in our store
+  },
+};
+</script>
 
 <style>
 #app {

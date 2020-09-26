@@ -2,13 +2,28 @@
   <div class="cities-container">
     <div class="sort-buttons">
       <p>sort:</p>
-      <button class="sort-button" @click="sortOrder = 'az'" v-if="sortOrder !== 'az'">A-Z</button>
-      <button class="sort-button" @click="sortOrder = 'za'" v-if="sortOrder !== 'za'">Z-A</button>
+      <button
+        class="sort-button"
+        @click="sortOrder = 'az'"
+        v-if="sortOrder !== 'az'"
+      >
+        A-Z
+      </button>
+      <button
+        class="sort-button"
+        @click="sortOrder = 'za'"
+        v-if="sortOrder !== 'za'"
+      >
+        Z-A
+      </button>
     </div>
     <ul class="cities-list">
       <li v-for="city in sortCities" :key="city.id">
-        <router-link class="city-link" :to="{name:'City', params:{id: city.id}}">
-          <div class="city-button">{{city.name}}</div>
+        <router-link
+          class="city-link"
+          :to="{ name: 'City', params: { id: city.id } }"
+        >
+          <div class="city-button">{{ city.name }}</div>
         </router-link>
       </li>
     </ul>
@@ -28,7 +43,7 @@ export default Vue.extend({
   computed: {
     sortCities: function () {
       if (this.sortOrder == "az") {
-        return this.$store.state.cities.slice().sort((a: any, b: any) => {
+        return this.$store.getters.cities.slice().sort((a: any, b: any) => {
           const nameA = a.name.toUpperCase();
           const nameB = b.name.toUpperCase();
           if (nameA < nameB) {
@@ -40,7 +55,7 @@ export default Vue.extend({
           return 0;
         });
       } else if (this.sortOrder == "za") {
-        return this.$store.state.cities.slice().sort((a: any, b: any) => {
+        return this.$store.getters.cities.slice().sort((a: any, b: any) => {
           const nameA = a.name.toUpperCase();
           const nameB = b.name.toUpperCase();
           if (nameA > nameB) {
@@ -52,7 +67,7 @@ export default Vue.extend({
           return 0;
         });
       } else {
-        return this.$store.state.cities;
+        return this.$store.getters.cities;
       }
     },
     // sortCities is a computed property that returns our cities array sorted depending on the sortOrder declared in our data

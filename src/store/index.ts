@@ -23,7 +23,7 @@ export default new Vuex.Store({
     SAVE_CITY(state, payload) {
       state.cities.push(payload)
     },
-    // SAVE_CITY mutation is used to push each city's data into our cities array that we will be using 
+    // SAVE_CITY mutation is used to push a city's data into our cities array 
     CLEAR_CITIES(state) {
       state.cities = [] as any
     }
@@ -39,6 +39,24 @@ export default new Vuex.Store({
       );
     }
     // loadCities action makes GET requests to our URLs and pushes each response to the cities array
+  },
+  getters: {
+    cities(state) {
+      return state.cities
+    },
+    coldCities(state) {
+      return state.cities.filter((city: { main: { temp: number } }) => {
+        return city.main.temp < 20;
+      })
+    }
+    // we filter the original array so that we only get the cities with a temperature lower than 20 degrees 
+    ,
+    warmCities(state) {
+      return state.cities.filter((city: { main: { temp: number } }) => {
+        return city.main.temp > 20;
+      })
+    }
+    // we filter again for the cities over 20 degrees
   },
   modules: {
   }
