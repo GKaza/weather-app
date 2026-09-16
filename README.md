@@ -1,6 +1,27 @@
-# weather-app
+# Weather App
 
-The app fetches the weather data from an API for 10 big cities.
-They are presented in the homepage, where they can be selected in order to see more weather details in their detail page.
+A Vue app that fetches weather data for 10 major cities and displays it with city selection, detail views, and random discovery.
 
-App has a navbar containing navigation buttons for the 'Home', 'Categories' and 'Random' pages. The random page picks a city randomly and navigates to its detail page where there is also a button to pick a new city. There is also a footer containing a site menu.
+🔗 **[Live demo](https://gkaza.github.io/weather-app/)**
+
+## Features
+
+- **Home** — browse 10 major cities with current weather at a glance
+- **City detail page** — click any city to see full weather details
+- **Categories** — this page splits cities between hot and cold ones
+- **Random** — jumps to a random city's detail page, with a button to pick another
+- **Navbar & footer** — site-wide navigation to Home, Categories, and Random, plus a footer menu
+
+## Tech stack
+
+- Vue 2 (Options API, TypeScript)
+- Vuex (state management)
+- [OpenWeatherMap API](https://openweathermap.org/api)
+- Deployed via GitHub Actions to GitHub Pages
+
+## Getting started
+
+```bash
+npm install
+npm run serve
+```
